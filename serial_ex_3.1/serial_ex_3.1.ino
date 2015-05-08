@@ -1,25 +1,32 @@
-int num = 64;
 
-void setup()             // run once, when the sketch starts
-{
-  Serial.begin(9600);    // set up Serial library at 9600 bps
+int thisByte = 33; 
 
-  Serial.println("Different formats for the same number:");
+void setup() 
+{ 
+  Serial.begin(9600); 
+  Serial.println("ASCII Table ~ Character Map"); 
+} 
 
-  Serial.write(num);
-  Serial.println();
+void loop()
+{ 
+  Serial.write(thisByte);    
   
-  Serial.println(num);
-  Serial.println(num,DEC);
-  
-  Serial.println(num,BIN);
-  
-  Serial.println(num,HEX);
-  
-  Serial.println(num,OCT);
-}
+  Serial.print(", dec: "); 
+  Serial.print(thisByte);      
+  Serial.print(", hex: "); 
+  Serial.print(thisByte, HEX);     
+  Serial.print(", oct: "); 
+  Serial.print(thisByte, OCT);     
+  Serial.print(", bin: "); 
+  Serial.println(thisByte, BIN);   
 
-void loop()   // we need this to be here even though its empty
-{
-}
+  if(thisByte == 126)  // if printed last visible character '~'
+  { 
+    while(true)
+    { 
+    } 
+  } 
+  thisByte++;     // go on to the next character
+
+} 
 
